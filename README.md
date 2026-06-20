@@ -1,2 +1,2 @@
 # Ace-Developer
-Modern web design &amp; maintenance assets for virtual assistants. High-converting templates, code snippets, and automation workflows for WordPress, Shopify, and Webflow.
+I'm Ace — a fullstack developer who builds your site front to back. Most freelancers hand you a site and disappear. I stay reachable and make sure it's done right.
