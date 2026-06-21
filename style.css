@@ -1,13 +1,13 @@
 :root{
-    --bg: #0B0F14;
-    --bg-panel: #10161D;
-    --bg-panel-2: #141C24;
-    --line: #1F2A33;
-    --text: #E8EAED;
-    --muted: #8B96A5;
-    --teal: #5EEAD4;
-    --amber: #F5A623;
-    --danger: #FF6B6B;
+    --bg: #0A0D12;
+    --bg-panel: #12161D;
+    --bg-panel-2: #161B23;
+    --line: #232A33;
+    --text: #E9EDF2;
+    --muted: #8993A3;
+    --teal: #4C8DFF;
+    --amber: #C9A45C;
+    --danger: #E5685F;
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
