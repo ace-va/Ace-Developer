@@ -30,7 +30,7 @@
   </div>
 
   <section style="border-bottom:none;">
-    <div class="about-grid" style="grid-template-columns:1fr; max-width:680px;">
+    <div class="about-grid reveal" style="grid-template-columns:1fr; max-width:680px;">
       <div class="about-text">
         <p>I studied <strong>fullstack web development</strong> through college, where I learned to build front to back — interfaces, logic, and the databases underneath. That's the foundation everything I build for clients stands on.</p>
         <p>Alongside freelancing, I work as a <strong>Project Control Services Associate</strong>, where attention to detail and following through on every task is part of the job. I bring that same discipline to every site I build — nothing ships until it's checked and working the way it should.</p>
@@ -44,7 +44,7 @@
       <div class="eyebrow">Why work with me</div>
       <h2>What you get that most beginner freelancers can't offer.</h2>
     </div>
-    <div class="why-grid">
+    <div class="why-grid reveal-stagger">
       <div class="why-item">
         <div class="mark">→</div>
         <div><h4>Reliability you can count on</h4><p>I treat every project with the same discipline I bring to my day job — clear communication, careful checking, and nothing shipped half-done.</p></div>
@@ -65,7 +65,7 @@
   </section>
 
   <section style="border-bottom:none;">
-    <div class="contact-panel">
+    <div class="contact-panel reveal">
       <div class="eyebrow" style="justify-content:center;">Get in touch</div>
       <h2>Ready to build something?</h2>
       <p>Send a quick email with what kind of site you need and I'll reply with next steps.</p>
@@ -81,6 +81,17 @@
   document.getElementById('emailBox').addEventListener('click', function(e){
     navigator.clipboard && navigator.clipboard.writeText('ace.webdev@example.com');
   });
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>

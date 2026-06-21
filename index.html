@@ -32,12 +32,22 @@
         <a href="#contact" class="btn-secondary">Get a quote</a>
       </div>
     </div>
+    <div class="hero-preview">
+      <div class="browser-frame-live">
+        <div class="browser-bar-live">
+          <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+          <div class="browser-url-live">ace-va.github.io/Ace-Developer</div>
+        </div>
+        <img src="https://image.thum.io/get/width/900/crop/650/noanimate/https://ace-va.github.io/Ace-Developer/" alt="Live preview of this site" loading="lazy">
+      </div>
+      <div class="live-badge"><span class="live-dot"></span>Live site — built &amp; deployed by me</div>
+    </div>
   </section>
 </div>
 
 <div class="wrap">
   <section id="projects-teaser">
-    <div class="teaser-panel">
+    <div class="teaser-panel reveal">
       <div class="teaser-text">
         <div class="eyebrow">Projects</div>
         <h2>A few things I've built.</h2>
@@ -50,7 +60,7 @@
 
 <div class="wrap">
   <section id="about">
-    <div class="teaser-panel">
+    <div class="teaser-panel reveal">
       <div class="teaser-text">
         <div class="eyebrow">About</div>
         <h2>Built in code, sharpened on the front line.</h2>
@@ -61,12 +71,12 @@
   </section>
 
   <section id="services">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="eyebrow">Services</div>
       <h2>Three kinds of sites. One flat price.</h2>
       <p><strong style="color:var(--teal);">$450 flat</strong> — for business sites, portfolios, or online stores. Limited-time launch pricing while I build my portfolio.</p>
     </div>
-    <div class="services-grid">
+    <div class="services-grid reveal-stagger">
       <div class="service-card">
         <div class="icon">B</div>
         <h3>Business Websites</h3>
@@ -89,11 +99,11 @@
   </section>
 
   <section id="process">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="eyebrow">Process</div>
       <h2>How a project moves from idea to live site.</h2>
     </div>
-    <div class="process-list">
+    <div class="process-list reveal-stagger">
       <div class="process-item">
         <div class="pnum">01</div>
         <div><h4>Discovery call</h4><p>We talk over email or a quick call about what your business needs and what "done" looks like for you.</p></div>
@@ -118,11 +128,11 @@
   </section>
 
   <section id="why">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="eyebrow">Why work with me</div>
       <h2>What you get that most beginner freelancers can't offer.</h2>
     </div>
-    <div class="why-grid">
+    <div class="why-grid reveal-stagger">
       <div class="why-item">
         <div class="mark">→</div>
         <div><h4>Reliability you can count on</h4><p>I treat every project with the same discipline I bring to my day job — clear communication, careful checking, and nothing shipped half-done.</p></div>
@@ -145,7 +155,7 @@
 
 <div class="wrap" style="border-bottom:none;">
   <section id="contact" style="border-bottom:none;">
-    <div class="contact-panel">
+    <div class="contact-panel reveal">
       <div class="eyebrow" style="justify-content:center;">Get in touch</div>
       <h2>Tell me what you're trying to build.</h2>
       <p>Send a quick email with what kind of site you need — business, portfolio, or store — and I'll reply with next steps and a quote.</p>
@@ -161,6 +171,17 @@
   document.getElementById('emailBox').addEventListener('click', function(e){
     navigator.clipboard && navigator.clipboard.writeText('ace.webdev@example.com');
   });
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
